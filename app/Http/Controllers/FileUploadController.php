@@ -23,7 +23,8 @@ class FileUploadController extends Controller
 
         $data = [
             'file' => $request->file('file'),
-            'folderID' => $request->input('fileUploadID')
+            'folderID' => $request->input('fileUploadID'),
+            'fileCode' => $request->input('fileCode'),
         ];
 
         \Log::info('File received:', $data); // or use dd($request->all());
@@ -40,7 +41,8 @@ class FileUploadController extends Controller
     {
         $data = [
             'fileName' => $request->input('fileName'),
-            'folderID' => $request->input('fileUploadID')
+            'folderID' => $request->input('fileUploadID'),
+            'fileCode' => $request->input('fileCode'),
         ];
 
         $filePath = $this->fileUploadService->deleteTemporaryFile($data);
